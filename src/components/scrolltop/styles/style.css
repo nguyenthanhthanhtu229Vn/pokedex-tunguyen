@@ -1,0 +1,31 @@
+.button_scroll {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 50px;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  animation: mymove 2s infinite;
+  transition: opacity 0.5s;
+}
+.button_scroll.true {
+  opacity: 1;
+}
+
+.button_scroll.false {
+  opacity: 0;
+}
+.button_scroll img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@keyframes mymove {
+  0% {
+    bottom: 80px;
+  }
+  100% {
+    bottom: 100px;
+  }
+}

@@ -1,0 +1,85 @@
+h1 {
+  letter-spacing: 3px;
+  font-size: 20px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+header {
+  justify-content: space-between;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #dedede;
+  z-index: 999;
+  transition: transform 0.5s;
+}
+
+header.true {
+  transform: translateY(0);
+}
+header.false {
+  transform: translateY(-100%);
+}
+.search {
+  display: flex;
+}
+.search-icon {
+  cursor: pointer;
+  width: 53px;
+  height: 35px;
+  text-align: center;
+  padding: 5px;
+  background-color: #30a7d7;
+  border-radius: 5px;
+}
+
+.search-icon:hover {
+  background-color: #4592c4;
+}
+.search-icon img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.search input {
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.suggest {
+  position: absolute;
+  background-color: #fff;
+  top: 35px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.suggest::-webkit-scrollbar {
+  width: 10px;
+}
+
+.suggest::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.suggest::-webkit-scrollbar-thumb {
+  background-color: #212529;
+  border-radius: 5px;
+}
+.suggest div {
+  padding-left: 5px;
+  cursor: pointer;
+}
+.suggest div:hover {
+  background-color: #30a7d7;
+}
+.search_input {
+  position: relative;
+}

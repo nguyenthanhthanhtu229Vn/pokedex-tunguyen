@@ -1,38 +1,202 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Flexo";
+  src: local("Flexo Thin"), local("Flexo-Thin"),
+    url("fonts/Flexo-Thin.woff2") format("woff2"),
+    url("fonts/Flexo-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "Flexo-Regular";
+  src: local("Flexo Regular"), local("Flexo-Regular"),
+    url("fonts/Flexo-Regular.woff2") format("woff2"),
+    url("fonts/Flexo-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Flexo-Demi";
+  src: local("Flexo Demi"), local("Flexo-Demi"),
+    url("fonts/Flexo-Demi.woff2") format("woff2"),
+    url("fonts/Flexo-Demi.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Flexo-Bold";
+  src: local("Flexo Bold"), local("Flexo-Bold"),
+    url("fonts/Flexo-Bold.woff2") format("woff2"),
+    url("fonts/Flexo-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Flexo-Regular";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
+#root {
+  background: #efefbb;
+  background: -webkit-linear-gradient(to right, #d4d3dd, #efefbb);
+  background: linear-gradient(to right, #d4d3dd, #efefbb);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-family: "Lato";
+  margin: 0;
+}
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #212529;
+  border-radius: 5px;
+}
+.poke-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.pokemon_detail .name {
+  width: max-content;
+  margin: 30px auto;
+}
+.pokemon_detail .name span {
+  font-family: "Flexo-Demi";
+  cursor: pointer;
+  font-size: 36px;
+}
+
+.pokemon_detail .name span:last-child {
+  color: #616161;
+}
+
+.pokemon_desc {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+}
+
+.pokemon_desc .pokemon_img {
+  width: auto;
+  height: auto;
+}
+
+.pokemon_desc .pokemon_img img {
+  min-width: 100%;
+  object-fit: cover;
+  min-height: 100%;
+}
+
+.pokemon_desc .pokemon_info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: auto;
+  background-color: #30a7d7;
+  padding: 10px 20px;
+  border-radius: 10px;
+  column-gap: 20px;
+}
+
+.pokemon_info-item {
+  display: flex;
+}
+
+.pokemon_info-item .title_sub:not(:last-child) {
+  margin-right: 10px;
+}
+
+.pokemon_info-item .title_sub {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.pokemon_info .title {
+  font-family: "Flexo-Demi";
+  text-transform: capitalize;
+  color: #fff;
+  font-size: 16px;
+}
+
+.pokemon_detail .type-list,
+.weaknesses-list,
+.strongness-list {
+  margin-top: 30px;
+}
+
+.pokemon_detail .type-list p,
+.weaknesses-list p,
+.strongness-list p {
+  text-transform: capitalize;
+  font-family: "Flexo-Demi";
+  font-size: 20px;
+}
+
+.strongness-list {
+  margin-bottom: 30px;
+}
+.type-list small,
+.strongness-list small,
+.weaknesses-list small {
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 70px;
+  display: inline-block;
+  text-align: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button_more {
+  display: block;
+  padding: 8px 10px;
+  width: max-content;
+  margin: 0 auto 30px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: RGB(48, 167, 215);
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 0px 9px -2px rgba(0, 0, 0, 0.62);
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button_more:hover {
+  background-color: #4592c4;
+}
+@media only screen and (max-width: 1200px) {
+  .poke-container {
+    grid-template-columns: repeat(3, 1fr);
   }
-  to {
-    transform: rotate(360deg);
+  .pokemon_desc {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (max-width: 576px) {
+  .poke-container {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
