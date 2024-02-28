@@ -8,6 +8,7 @@ import Loader from "../components/loader/Loader";
 const Homepage = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [visible, setVisible] = useState(18);
   const [limit, setLimit] = useState(0);
   const getPokemonData = async (id) => {
@@ -16,8 +17,10 @@ const Homepage = () => {
   };
 
   const loadMoreItem = async () => {
+    setLoadingMore(true);
     setVisible((preValue) => preValue + 10);
     await getPokemonList(visible);
+    setLoadingMore(false);
   };
 
   const getPokemonList = async (POKEMON_NUMBER) => {
@@ -45,6 +48,7 @@ const Homepage = () => {
               </div>
             ))}
           </div>
+          {loadingMore ? <Loader /> : null}
           {visible < 898 ? (
             <button onClick={loadMoreItem} className="button_more">
               Load more pokémon
